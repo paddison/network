@@ -1,5 +1,12 @@
 {% extends "network/layout.html" %}
 
 {% block body %}
-    TODO
+    {% if user.is_authenticated %}
+        <form class='new-post-form' method="POST" action='{% url "index" %}'>
+            {% csrf_token %}
+            {{ PostForm }}
+            <input class="btn btn-primary" type="submit" value='Post'>
+        </form>
+    {% endif %}
+    {% include "network/posts.html" %}
 {% endblock %}

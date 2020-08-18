@@ -1,0 +1,145 @@
+html,body {
+    height:100%;
+}
+
+label {
+    display: none;
+}
+
+.body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.post-wrapper {
+    border: 1px solid rgb(185, 185, 185);
+    box-sizing: border-box;
+    display: block;
+    width: 50%;
+    min-width: 400px;
+    margin-bottom: -1px;
+    padding: 8px;
+    min-height: 110px;
+}
+
+.post-title, .post-footer{
+    display: flex;
+    justify-content: space-between;
+}
+
+.post-text {
+    word-wrap: break-word;
+    white-space: pre-wrap;
+}
+
+.post-user {
+    font-size: larger;
+    text-decoration: none !important;
+    color: grey !important;
+    margin-bottom: 0px;
+}
+
+.post-date {
+    color: gray;
+    font-size: small;
+    font-weight: lighter;
+    text-align: right;
+}
+
+.edit-form {
+    display: none;
+}
+
+.edit-form>* {
+    display: flex;
+}
+
+.edit {
+    color: #007bff !important;
+    text-decoration: none !important;
+    cursor: pointer !important;
+    padding-top: .3125rem;
+    padding-bottom: .3125rem;
+}
+
+.edit:hover {
+    color: #0056b3 !important;
+    text-decoration: underline !important;
+}
+
+.like-btn {
+    color:#007bff;
+    background: white;
+    border: none;
+}
+
+.like-btn:focus {
+    outline: none !important;
+}
+
+.new-post-form {
+    display: block;
+    height: 200px;
+    width: 50%;
+    min-width: 400px;
+}
+
+.new-post-field, .edit-field  {
+    border: none;
+    background-color: #f8f9fa !important;
+    border-radius: 5px 5px 0px 0px;
+    border-bottom: 2px solid #007bff;
+    width: 100%;
+    resize: none;
+    padding: 10px;
+}
+
+.new-post-field {
+    height: 70%;
+}
+
+.new-post-field:focus, .edit-field:focus {
+    outline: none;
+    border: 1px solid rgb(185, 185, 185);
+    border-bottom: 2px solid #007bff;
+}
+
+.edit-header {
+    justify-content: space-between;
+}
+
+.edit-buttons {
+    padding-top: .3125rem;
+    padding-bottom: .3125rem;
+}
+
+.user-info {
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+    min-width: 400px;
+    margin-bottom: 20px;
+}
+
+.follower-info {
+    padding-top: .3125rem;
+    padding-bottom: .3125rem;
+    margin-bottom: 0px;
+}
+
+.pagination-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    width: 50%;
+    min-width: 400px;
+}
+
+.pagination {
+    margin-top: 1px;
+    margin-bottom: 0px;
+}
+
+.top-nav {
+    margin-bottom: 1rem;    
+}

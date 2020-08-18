@@ -1,0 +1,43 @@
+{% include "network/paginator.html" %}
+{% for post in page_obj %}
+    <div id='post{{ post.id }}' class='post-wrapper'>
+        <div class='post-body'>
+            <div class='post-title'>
+                <a class='post-user navbar-brand' href="{% url 'user' post.user.id %}">{{ post.user }}</a>
+                {% if user.id == post.user.id %}
+                    <a class='edit' data-id='{{ post.id }}'>Edit</a>
+                {% endif %}
+            </div>
+            <p id='text{{ post.id }}'class='post-text'>{{ post.text }}</p>
+            <div class='post-footer'>                    
+                <div class='likes-wrapper'>
+                    {% if user.is_authenticated %}
+                        {% if post.id in likes %}
+                            <button class='like-btn' data-id='{{ post.id }}' type='button'><i class="fas fa-thumbs-up"></i></button>
+                        {% else %}
+                            <button class='like-btn' data-id='{{ post.id }}' type='button'><i class="far fa-thumbs-up"></i></button>       
+                        {% endif %}  
+                    {% else %}    
+                        <inline class='like-btn'><i class="far fa-thumbs-up"></i></inline>     
+                    {% endif %}
+                    <inline id='like-count{{ post.id }}'>{{ post.get_likes }}</inline>
+                </div>
+                <div class='post-date'>{{ post.created_on}}</div>
+            </div>
+        </div>
+        <div id='form{{ post.id }}' class='edit-form'>
+            <div class='edit-header'>
+                <p class='post-user navbar-brand'>Edit:</p>
+                <div class='edit-buttons'>
+                    <button id='edit-btn{{ post.id }}' class="btn btn-secondary btn-sm" type='button'>Edit</button>
+                    <button id='cancel-btn{{ post.id }}' class="btn btn-danger btn-sm" type='button'>Cancel</button>             
+                </div>
+            </div>           
+            <textarea id='edit-field{{ post.id }}' class='edit-field' maxlength="280" rows='5' data-original='{{ post.text }}'>{{ post.text }}</textarea>
+
+        </div>
+    </div>
+{% empty %}
+    <p>No Posts so far</p>
+{% endfor %}   
+{% include "network/paginator.html" %}
